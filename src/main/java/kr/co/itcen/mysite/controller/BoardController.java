@@ -52,8 +52,13 @@ public class BoardController {
 
 	@RequestMapping(value = "/write", method = RequestMethod.POST)
 	public String write(@ModelAttribute BoardVo vo) {
-			boardService.insert(vo);
 		
+		if(vo.getgNo() != "" && vo.getoNo() != "" && vo.getDepth() != "") {
+			boardService.update(vo.getgNo(), vo.getoNo());
+			boardService.commentInsert(vo);
+		} else {
+			boardService.insert(vo);
+		}
 		return "redirect:/board/list";
 	}
 	
@@ -64,14 +69,14 @@ public class BoardController {
 		return "board/write";
 	}
 	
-	@RequestMapping(value = "/write/{gNo}/{oNo}/{depth}", method = RequestMethod.POST)
-	public String write(@PathVariable("gNo") String gNo, //스트링으로 다시 고치고 parseInt해야함
-			@PathVariable("oNo") String oNo, 
-			@PathVariable("depth") String depth, @ModelAttribute BoardVo vo ) {
-		
-			boardService.update(gNo, oNo);
-			boardService.commentInsert(vo);
-		
-		return "redirect:/board/list";
-	}
+//	@RequestMapping(value = "/write/{gNo}/{oNo}/{depth}", method = RequestMethod.POST)
+//	public String write(@PathVariable("gNo") String gNo, //스트링으로 다시 고치고 parseInt해야함
+//			@PathVariable("oNo") String oNo, 
+//			@PathVariable("depth") String depth, @ModelAttribute BoardVo vo ) {
+//		
+//			boardService.update(gNo, oNo);
+//			boardService.commentInsert(vo);
+//		
+//		return "redirect:/board/list";
+//	}
 }
