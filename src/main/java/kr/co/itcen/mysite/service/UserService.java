@@ -21,11 +21,17 @@ public class UserService {
 		
 		return userDao.get(vo);
 	}
-
+	
 	public void update(UserVo vo) {
 		userDao.update(vo);
 		
 	}
+
+	public UserVo getUser(Long no) {
+		return userDao.get(no);
+	}
+
+	
 	
 	
 }

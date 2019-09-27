@@ -6,9 +6,9 @@ public class BoardVo {
 	private String content;
 	private int hit;
 	private String regDate;
-	private int gNo;
-	private int oNo;
-	private int depth;
+	private String gNo;
+	private String oNo;
+	private String depth;
 	private Long userNo;
 	private String name;
 	public String getName() {
@@ -53,22 +53,22 @@ public class BoardVo {
 	public void setRegDate(String regDate) {
 		this.regDate = regDate;
 	}
-	public int getgNo() {
+	public String getgNo() {
 		return gNo;
 	}
-	public void setgNo(int gNo) {
+	public void setgNo(String gNo) {
 		this.gNo = gNo;
 	}
-	public int getoNo() {
+	public String getoNo() {
 		return oNo;
 	}
-	public void setoNo(int oNo) {
+	public void setoNo(String oNo) {
 		this.oNo = oNo;
 	}
-	public int getDepth() {
+	public String getDepth() {
 		return depth;
 	}
-	public void setDepth(int depth) {
+	public void setDepth(String depth) {
 		this.depth = depth;
 	}
 	public Long getUserNo() {

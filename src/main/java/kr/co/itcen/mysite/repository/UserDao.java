@@ -30,7 +30,7 @@ public class UserDao {
 	}
 
 	public UserVo get(UserVo vo) {
-		UserVo result = sqlSession.selectOne("user.getByEmailAndPassword", vo);
+		UserVo result = sqlSession.selectOne("user.getByEmailAndPassword1", vo);
 		return result;
 	}
 
@@ -39,7 +39,7 @@ public class UserDao {
 		map.put("email", email);
 		map.put("password", password);
 
-		UserVo result = sqlSession.selectOne("user.getByEmailAndPassword", map);
+		UserVo result = sqlSession.selectOne("user.getByEmailAndPassword2", map);
 		return result;
 	}
 
